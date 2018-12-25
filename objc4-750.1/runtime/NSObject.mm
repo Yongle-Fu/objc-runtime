@@ -1968,7 +1968,6 @@ void arr_init(void)
 @implementation NSObject
 
 + (void)load {
-    int a = 0;
 }
 
 + (void)initialize {
@@ -2216,6 +2215,16 @@ void arr_init(void)
 }
 
 - (NSString *)debugDescription {
+    /****test code start****/
+    objc_class *cls = (__bridge struct objc_class*)([self class]);
+    objc_class *metaCls = (__bridge struct objc_class*)cls->ISA();
+    printf("%p %p", cls, metaCls);
+
+    class_rw_t *cls_rw_t = cls->data();
+    class_rw_t *meta_cls_rw_t = metaCls->data();
+    printf("%p %p", cls_rw_t, meta_cls_rw_t);
+    /****test code end****/
+    
     return [self description];
 }
 
