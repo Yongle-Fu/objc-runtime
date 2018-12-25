@@ -42,7 +42,7 @@
 - (void)studentMethod {}
 + (void)studentClassMethod {}
 @end
-
+//
 int main(int argc, char * argv[]) {
     @autoreleasepool {
         NSObject *object = [[NSObject alloc] init];
