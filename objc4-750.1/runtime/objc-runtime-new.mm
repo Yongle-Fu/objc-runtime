@@ -2546,6 +2546,22 @@ void _read_images(header_info **hList, uint32_t hCount, int totalClasses, int un
     for (EACH_HEADER) {
         classref_t *classlist = _getObjc2ClassList(hi, &count);
         
+//        if (hIndex == hCount - 1) {
+//            printf("Objc2ClassList\n");
+//            for (i = 0; i < count; i++) {
+//                Class cls = (Class)classlist[i];
+//                printf("%s\n", cls->mangledName());
+//            }
+//
+//            size_t count2 = 0;
+//            Class *classrefs = _getObjc2ClassRefs(hi, &count2);
+//            printf("Objc2ClassRefs\n");
+//            for (i = 0; i < count2; i++) {
+//                Class cls = classrefs[i];
+//                printf("%s\n", cls->mangledName());
+//            }
+//        }
+        
         if (! mustReadClasses(hi)) {
             // Image is sufficiently optimized that we need not call readClass()
             continue;
